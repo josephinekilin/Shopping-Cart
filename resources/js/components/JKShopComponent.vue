@@ -2,7 +2,7 @@
   <div class="container">
     <product-list :listdata="list" />
     <cart-list :cart="cart" @emitDelete="deleteItem" />
-    <button-form text="Check Out" color="blue" @emitClick="payItem(cart)"/>
+    <button-form v-if="cart.length" text="Check Out" color="blue" @emitClick="payItem(cart)"/>
   </div>
 </template>
 
@@ -55,7 +55,7 @@ export default {
     methods:{
         deleteItem(index){
             this.cart.splice(index,1);
-            alert("Success Delete !")
+            //alert("Success Delete !")
         },
         payItem(index){
             this.cart.splice(index);
